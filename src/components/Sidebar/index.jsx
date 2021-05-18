@@ -5,7 +5,7 @@ import * as Ionicons4 from "react-icons/io";
 
 const Sidebar = () => {
   return (
-    <div className='fixed bg-white w-56 h-screen p-5 shadow-lg'>
+    <div className='fixed bg-white w-56 h-screen p-5 shadow-lg z-20'>
       <div className='mb-3'>
         <span className='uppercase text-lg'>Manage</span>
       </div>
