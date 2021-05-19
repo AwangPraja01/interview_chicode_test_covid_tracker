@@ -2,15 +2,31 @@ import React from "react";
 
 import { Bar } from "react-chartjs-2";
 
+const labels = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday ",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
 const options = {
   scales: {
     y: {
       beginAtZero: true,
     },
   },
+  plugins: {
+    legend: {
+      display: false,
+    },
+  },
 };
 
 const data = {
+  labels: labels,
   datasets: [
     {
       label: "My First Dataset",

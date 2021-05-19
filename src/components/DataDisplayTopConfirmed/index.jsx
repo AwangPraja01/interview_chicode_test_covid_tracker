@@ -7,48 +7,43 @@ const DataDisplayTopConfirmed = () => {
       <div>
         <table className='w-full'>
           <tr className='border-black border-b-2'>
-            <th>Courses</th>
-            <th>Completed</th>
-            <th>Completion %</th>
+            <th className='text-left'>Courses</th>
+            <th className='text-right'>Completed</th>
+            <th className='text-right'>Completion %</th>
           </tr>
           <tr className='border-black border-b-2'>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
+            <td className='py-1 text-left'>Alfreds Futterkiste</td>
+            <td className='py-1 text-right'>15,247</td>
+            <td className='py-1 text-right'>15 %</td>
           </tr>
           <tr className='border-black border-b-2'>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
+            <td className='py-1 text-left'>Alfreds Futterkiste</td>
+            <td className='py-1 text-right'>15,247</td>
+            <td className='py-1 text-right'>15 %</td>
           </tr>
           <tr className='border-black border-b-2'>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
+            <td className='py-1 text-left'>Alfreds Futterkiste</td>
+            <td className='py-1 text-right'>15,247</td>
+            <td className='py-1 text-right'>15 %</td>
           </tr>
           <tr className='border-black border-b-2'>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
+            <td className='py-1 text-left'>Alfreds Futterkiste</td>
+            <td className='py-1 text-right'>15,247</td>
+            <td className='py-1 text-right'>15 %</td>
           </tr>
           <tr className='border-black border-b-2'>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
+            <td className='py-1 text-left'>Alfreds Futterkiste</td>
+            <td className='py-1 text-right'>15,247</td>
+            <td className='py-1 text-right'>15 %</td>
           </tr>
-          <tr className='border-black border-b-2'>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
-          </tr>
-          <tr>
-            <td>Alfreds Futterkiste</td>
-            <td>15,247</td>
-            <td>15 %</td>
+          <tr className='border-black'>
+            <td className='py-1 text-left'>Alfreds Futterkiste</td>
+            <td className='py-1 text-right'>15,247</td>
+            <td className='py-1 text-right'>15 %</td>
           </tr>
         </table>
       </div>
-      <div className='flex flex-row justify-between items-center border-black border-t-2'>
+      <div className='absolute w-full bottom-0 left-0 flex flex-row justify-between items-center border-black border-t-2 px-4 py-1'>
         <div className='flex flex-row justify-start items-center'>
           <span>Last 7 days</span>
           <span>
