@@ -5,3 +5,19 @@
 body {
   @apply bg-gray-50;
 }
+
+.data-display-container {
+  @apply cursor-pointer flex-grow flex flex-col p-2 border-t-4;
+}
+
+.top-deaths-cases-item {
+  @apply flex flex-row justify-between items-center border-black border-b-2 py-1;
+}
+
+.top-deaths-cases-item:last-child {
+  @apply border-none;
+}
+
+#table-top-death::-webkit-scrollbar {
+  width: 0;
+}
