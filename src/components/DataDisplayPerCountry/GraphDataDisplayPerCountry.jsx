@@ -1,23 +1,22 @@
 import { Line } from "react-chartjs-2";
 import React from "react";
 
-const Graph = () => {
-  const labels = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday ",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+const GraphDataDisplayPerCountry = () => {
   const data = {
-    labels: labels,
+    labels: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday ",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
     datasets: [
       {
         data: [65, 59, 80, 81, 56, 55, 40],
         fill: false,
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "rgb(56,123,255)",
         tension: 0.1,
       },
     ],
@@ -32,9 +31,9 @@ const Graph = () => {
   };
   return (
     <>
-      <Line height={180} data={data} options={options} />
+      <Line data={data} options={options} />
     </>
   );
 };
 
-export default Graph;
+export default GraphDataDisplayPerCountry;

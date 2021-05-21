@@ -1,45 +1,60 @@
 import React, { useContext } from "react";
-import * as Ionicons4 from "react-icons/io";
-import { CountryTopConfirmedCasesContext } from "../../contexts/CountryTopConfirmedCasesContext";
 import { v4 as uuidv4 } from "uuid";
+import { Covid19Context } from "../../contexts/Covid19Context";
+import * as MaterialDesignIcons from "react-icons/md";
 
 const DataDisplayTopConfirmed = () => {
-  const { topConfirmedCountry } = useContext(CountryTopConfirmedCasesContext);
-  console.log(topConfirmedCountry);
+  const { topConfirmedCountry } = useContext(Covid19Context);
+
   return (
-    <>
-      <div>
-        <table className='w-full'>
-          <thead>
-            <tr className='border-black border-b-2'>
-              <th className='text-left'>Country Name</th>
-              <th className='text-right'>Country Code</th>
-              <th className='text-right'>Confirmed Patient</th>
-            </tr>
-          </thead>
-          <tbody>
-            {topConfirmedCountry.map((item) => (
-              <tr key={uuidv4()} className='border-black border-b-2'>
-                <td className='py-1 text-left'>{item.countryRegion}</td>
-                <td className='py-1 text-right'>{item.iso3}</td>
-                <td className='py-1 text-right'>{item.confirmed}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div id='data-display-top-confirmed-container'>
+      <div className='mb-5'>
+        <span className='text-lg font-semibold text-gray-800'>
+          Countries with the highest number of confirmed patients
+        </span>
       </div>
-      <div className='absolute w-full bottom-0 left-0 flex flex-row justify-between items-center border-black border-t-2 px-4 py-1'>
-        <div className='flex flex-row justify-start items-center'>
-          <span>Last 7 days</span>
-          <span>
-            <Ionicons4.IoMdArrowDropdown />
-          </span>
-        </div>
+      <div className='relative bg-white  p-4'>
         <div>
-          <span>User Report</span>
+          <table className='w-full'>
+            <thead>
+              <tr className='border-gray-400 border-b-2'>
+                <th className='text-left font-semibold'>Country Name</th>
+                <th className='text-right font-semibold'>Country Code</th>
+                <th className='text-right font-semibold'>Confirmed Patient</th>
+              </tr>
+            </thead>
+            <tbody className='divide-y-2 divide-gray-400'>
+              {topConfirmedCountry.map((item) => (
+                <tr key={uuidv4()}>
+                  <td className='py-1 text-left text-green-500 font-semibold'>
+                    {item.countryRegion}
+                  </td>
+                  <td className='py-1 text-right'>{item.iso3}</td>
+                  <td className='py-1 text-right'>{item.confirmed}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className='w-full flex flex-row justify-between items-center border-gray-400 border-t-2 pt-2'>
+          <div>
+            <select
+              name='time_span'
+              id='time_span'
+              className='focus:outline-none cursor-pointer'>
+              <option value='last7days'>Last 7 days</option>
+              <option value='last7days'>Last 30 days</option>
+            </select>
+          </div>
+          <div className='flex flex-row items-center justify-start text-green-500 font-semibold uppercase cursor-pointer'>
+            <span>User Report</span>
+            <span className='text-xl mt-1'>
+              <MaterialDesignIcons.MdKeyboardArrowRight />
+            </span>
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

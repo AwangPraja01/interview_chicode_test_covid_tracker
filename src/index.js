@@ -3,13 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import CountryContextProvider from "./contexts/CountryContext";
+import Covid19ContextProvider from "./contexts/Covid19Context";
+import NavigationContextProvider from "./contexts/NavigationContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CountryContextProvider>
-      <App />
-    </CountryContextProvider>
+    <NavigationContextProvider>
+      <Covid19ContextProvider>
+        <App />
+      </Covid19ContextProvider>
+    </NavigationContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

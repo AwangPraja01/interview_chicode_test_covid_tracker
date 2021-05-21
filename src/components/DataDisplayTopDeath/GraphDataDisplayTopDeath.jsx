@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Bar } from "react-chartjs-2";
-import { CountryTopDeathCasesContext } from "../../contexts/CountryTopDeathCasesContext";
 
-const Graph = () => {
-  const { topDeathCases } = useContext(CountryTopDeathCasesContext);
-  const labels = topDeathCases.map((item) => item.countryRegion);
-
+const GraphDataDisplayTopDeath = ({ topDeathCountry }) => {
   const options = {
     scales: {
       y: {
@@ -24,10 +20,10 @@ const Graph = () => {
   };
 
   const data = {
-    labels: labels,
+    labels: topDeathCountry.map((item) => item.countryRegion),
     datasets: [
       {
-        data: topDeathCases.map((item) => item.deaths),
+        data: topDeathCountry.map((item) => item.deaths),
         backgroundColor: "rgba(255,255,255,0.8)",
       },
     ],
@@ -39,4 +35,4 @@ const Graph = () => {
   );
 };
 
-export default Graph;
+export default GraphDataDisplayTopDeath;
