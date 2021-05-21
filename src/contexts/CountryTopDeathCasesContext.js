@@ -10,7 +10,7 @@ const CountryTopDeathCasesContextProvider = (props) => {
     const fetchTopDeathCases = async () => {
       const res = await fetch("https://covid19.mathdro.id/api/deaths");
       const data = await res.json();
-      setTopDeathCases(data.slice(0, 7));
+      setTopDeathCases(data.slice(0, 10));
     };
     fetchTopDeathCases();
   }, []);

@@ -1,59 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as Ionicons4 from "react-icons/io";
+import { CountryTopRecoveredCasesContext } from "../../contexts/CountryTopRecoveredCasesContext";
+import { v4 as uuidv4 } from "uuid";
 
 const DataDisplayTopRecovered = () => {
+  const { topRecoveredCountry } = useContext(CountryTopRecoveredCasesContext);
   return (
     <>
       <div>
         <table className='w-full'>
           <thead>
             <tr className='border-black border-b-2'>
-              <th className='text-left'>Courses</th>
-              <th className='text-right'>Completed</th>
-              <th className='text-right'>Completion %</th>
+              <th className='text-left'>Country Name</th>
+              <th className='text-right'>Country Code</th>
+              <th className='text-right'>Recovered Patient</th>
             </tr>
           </thead>
           <tbody>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black border-b-2'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
-            <tr className='border-black'>
-              <td className='py-1 text-left'>Alfreds Futterkiste</td>
-              <td className='py-1 text-right'>15,247</td>
-              <td className='py-1 text-right'>15 %</td>
-            </tr>
+            {topRecoveredCountry.map((item) => (
+              <tr key={uuidv4()} className='border-black border-b-2'>
+                <td className='py-1 text-left'>{item.countryRegion}</td>
+                <td className='py-1 text-right'>{item.iso3}</td>
+                <td className='py-1 text-right'>{item.recovered}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -10,6 +10,8 @@ import BarGraph from "./components/BarGraph";
 import CountryNamesContextProvider from "./contexts/CountryNamesContext";
 import CountryCasesContextProvider from "./contexts/CountryCasesContext";
 import CountryTopDeathCasesContextProvider from "./contexts/CountryTopDeathCasesContext";
+import CountryTopRecoveredCasesContextProvider from "./contexts/CountryTopRecoveredCasesContext";
+import CountryTopConfirmedCasesContextProvider from "./contexts/CountryTopConfirmedCasesContext";
 
 const App = () => {
   return (
@@ -60,7 +62,9 @@ const App = () => {
                 </span>
               </div>
               <div className='relative bg-white h-full p-4 rounded-md'>
-                <DataDisplayTopRecovered />
+                <CountryTopRecoveredCasesContextProvider>
+                  <DataDisplayTopRecovered />
+                </CountryTopRecoveredCasesContextProvider>
               </div>
             </div>
             <div
@@ -72,7 +76,9 @@ const App = () => {
                 </span>
               </div>
               <div className='relative bg-white h-full p-4 rounded-md'>
-                <DataDisplayTopConfirmed />
+                <CountryTopConfirmedCasesContextProvider>
+                  <DataDisplayTopConfirmed />
+                </CountryTopConfirmedCasesContextProvider>
               </div>
             </div>
           </div>
@@ -84,7 +90,13 @@ const App = () => {
               <span>Lorem ipsum dolor sit amet?</span>
             </div>
             <div className='bg-white flex-1 w-full rounded-md overflow-hidden'>
-              <BarGraph />
+              <CountryTopConfirmedCasesContextProvider>
+                <CountryTopRecoveredCasesContextProvider>
+                  <CountryTopDeathCasesContextProvider>
+                    <BarGraph />
+                  </CountryTopDeathCasesContextProvider>
+                </CountryTopRecoveredCasesContextProvider>
+              </CountryTopConfirmedCasesContextProvider>
             </div>
           </div>
         </div>
