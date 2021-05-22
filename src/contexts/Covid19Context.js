@@ -20,59 +20,102 @@ const Covid19ContextProvider = (props) => {
   };
 
   useEffect(() => {
+    let active = true;
+
     const fetchCountryNames = async () => {
       const res = await fetch("https://covid19.mathdro.id/api/countries");
       const data = await res.json();
-      setCountryNames(data.countries);
+      if (active) {
+        setCountryNames(data.countries);
+      }
     };
+
     fetchCountryNames();
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
+    let active = true;
     const fetchCountryCases = async () => {
       const res = await fetch(
         `https://covid19.mathdro.id/api/countries/${selectedCountry}`
       );
       const data = await res.json();
-      setCountryCasesPerCountry(data);
+      if (active) {
+        setCountryCasesPerCountry(data);
+      }
     };
     fetchCountryCases();
+    return () => {
+      active = false;
+    };
   }, [selectedCountry]);
 
   useEffect(() => {
+    let active = true;
+
     const fetchTopConfirmedCountry = async () => {
       const res = await fetch("https://covid19.mathdro.id/api/confirmed");
       const data = await res.json();
-      setTopConfirmedCountry(data.slice(0, 10));
+      if (active) {
+        setTopConfirmedCountry(data.slice(0, 10));
+      }
     };
+
     fetchTopConfirmedCountry();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
+    let active = true;
     const fetchTopRecoveredCountry = async () => {
       const res = await fetch("https://covid19.mathdro.id/api/recovered");
       const data = await res.json();
-      setTopRecoveredCountry(data.slice(0, 10));
+      if (active) {
+        setTopRecoveredCountry(data.slice(0, 10));
+      }
     };
     fetchTopRecoveredCountry();
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
+    let active = true;
     const fetchTopDeathCountry = async () => {
       const res = await fetch("https://covid19.mathdro.id/api/deaths");
       const data = await res.json();
-      setTopDeathCountry(data.slice(0, 10));
+      if (active) {
+        setTopDeathCountry(data.slice(0, 10));
+      }
     };
     fetchTopDeathCountry();
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
+    let active = true;
+
     const fetchTotalDeaths = async () => {
       const res = await fetch("https://covid19.mathdro.id/api");
       const data = await res.json();
-      setTotalDeaths(data.deaths.value);
+      if (active) {
+        setTotalDeaths(data.deaths.value);
+      }
     };
+
     fetchTotalDeaths();
+    return () => {
+      active = false;
+    };
   }, []);
 
   return (

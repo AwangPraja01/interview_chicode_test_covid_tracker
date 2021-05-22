@@ -11,20 +11,20 @@ body {
 }
 
 #data-display-per-country-container {
-  @apply bg-white w-3/5 h-124 mr-7 overflow-hidden;
+  @apply bg-white w-full md:w-3/5 h-auto md:h-124 mb-5 md:mb-0 md:mr-7 overflow-hidden relative;
 }
 
 #data-display-top-death-container {
-  @apply bg-blue-600 h-124 flex-1 text-white p-3;
+  @apply bg-blue-600 h-124 sm:h-auto md:h-124 w-full flex flex-col  md:w-auto md:flex-1 text-white p-3;
 }
 
 #data-display-top-recovered-container,
 #data-display-top-confirmed-container {
-  @apply w-1/2 h-full;
+  @apply w-full md:w-1/2 h-full;
 }
 
 #data-display-top-recovered-container {
-  @apply mr-5;
+  @apply mb-5 md:mb-0 md:mr-5;
 }
 
 #data-display-top-country {

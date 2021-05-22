@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <div
       id='sidebar-container'
-      className={`fixed top-0 left-0 bg-white h-screen shadow-lg z-20 overflow-hidden ${
+      className={`fixed top-0 left-0 bg-white h-full shadow-lg z-20 overflow-hidden ${
         sidebarActive ? "p-5 w-56" : "p-0 w-0"
       }`}>
       <div className='flex flex-row items-center justify-between mb-3'>

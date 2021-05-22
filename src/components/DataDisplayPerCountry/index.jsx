@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import GraphDataDisplayPerCountry from "./GraphDataDisplayPerCountry";
 import { v4 as uuidv4 } from "uuid";
 import { Covid19Context } from "../../contexts/Covid19Context";
+import NumberFormat from "react-number-format";
 
 const DataDisplayPerCountry = () => {
   const {
@@ -14,7 +15,7 @@ const DataDisplayPerCountry = () => {
   const [dataType, setDataType] = useState("confirmed");
 
   return (
-    <div id='data-display-per-country-container' className='relative'>
+    <div id='data-display-per-country-container'>
       <div className='w-full flex flex-row justify-between items-start mb-3'>
         <div
           onClick={() => setDataType("confirmed")}
@@ -23,7 +24,11 @@ const DataDisplayPerCountry = () => {
           }`}>
           <span>Confirmed</span>
           <span className='text-2xl'>
-            {countryCasesPerCountry.confirmed.value}
+            <NumberFormat
+              value={countryCasesPerCountry.confirmed.value}
+              thousandSeparator={true}
+              displayType={"text"}
+            />
           </span>
         </div>
 
@@ -34,7 +39,11 @@ const DataDisplayPerCountry = () => {
           }`}>
           <span>Deaths</span>
           <span className='text-2xl'>
-            {countryCasesPerCountry.deaths.value}
+            <NumberFormat
+              value={countryCasesPerCountry.deaths.value}
+              thousandSeparator={true}
+              displayType={"text"}
+            />
           </span>
         </div>
 
@@ -45,7 +54,11 @@ const DataDisplayPerCountry = () => {
           }`}>
           <span>Recovered</span>
           <span className='text-2xl'>
-            {countryCasesPerCountry.recovered.value}
+            <NumberFormat
+              value={countryCasesPerCountry.recovered.value}
+              thousandSeparator={true}
+              displayType={"text"}
+            />
           </span>
         </div>
       </div>
@@ -54,7 +67,7 @@ const DataDisplayPerCountry = () => {
         <GraphDataDisplayPerCountry />
       </div>
 
-      <div className='absolute bottom-0 left-0 w-full flex flex-row items-center justify-between border-t-2 border-gray-400'>
+      <div className='md:absolute md:bottom-0 md:left-0 w-full flex flex-col md:flex-row md:items-center md:justify-between border-t-2 border-gray-400'>
         <div>
           <select
             name='time_span'

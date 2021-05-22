@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Covid19Context } from "../../contexts/Covid19Context";
 import * as MaterialDesignIcons from "react-icons/md";
+import NumberFormat from "react-number-format";
 
 const DataDisplayTopConfirmed = () => {
   const { topConfirmedCountry } = useContext(Covid19Context);
@@ -13,7 +14,7 @@ const DataDisplayTopConfirmed = () => {
           Countries with the highest number of confirmed patients
         </span>
       </div>
-      <div className='relative bg-white  p-4'>
+      <div className=' bg-white  p-4'>
         <div>
           <table className='w-full'>
             <thead>
@@ -30,7 +31,13 @@ const DataDisplayTopConfirmed = () => {
                     {item.countryRegion}
                   </td>
                   <td className='py-1 text-right'>{item.iso3}</td>
-                  <td className='py-1 text-right'>{item.confirmed}</td>
+                  <td className='py-1 text-right'>
+                    <NumberFormat
+                      value={item.confirmed}
+                      thousandSeparator={true}
+                      displayType={"text"}
+                    />
+                  </td>
                 </tr>
               ))}
             </tbody>

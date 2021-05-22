@@ -23,12 +23,12 @@ const App = () => {
             </span>
           </div>
 
-          <div className='flex flex-row justify-between items-start mb-5'>
+          <div className='flex flex-col justify-center items-center md:flex-row md:justify-between md:items-start mb-5'>
             <DataDisplayPerCountry />
             <DataDisplayTopDeath />
           </div>
 
-          <div className='flex flex-row justify-between items-start mb-5'>
+          <div className='flex flex-col justify-center items-center md:flex-row md:justify-between md:items-start mb-5'>
             <DataDisplayTopRecovered />
             <DataDisplayTopConfirmed />
           </div>
