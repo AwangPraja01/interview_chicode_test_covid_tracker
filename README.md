@@ -23,10 +23,12 @@ The language used in this project is as follows :
 - CSS
 - Javascript
 
-# Framework :triangular_ruler:
+# Framework and API :triangular_ruler:
 
-The framework used in this project is as follows :
+The framework and API used in this project is as follows :
 
 - React Js
 - Context API
 - Tailwindcss
+
+* [COVID19.MATHDROID](https://covid19.mathdro.id/api/)
