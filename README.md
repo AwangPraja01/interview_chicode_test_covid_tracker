@@ -29,5 +29,5 @@ The framework and API used in this project is as follows :
 
 - React Js
 - Context API
-- [COVID19.MATHDROID](https://covid19.mathdro.id/api/)
 - Tailwindcss
+- [COVID19.MATHDROID](https://covid19.mathdro.id/api/)
